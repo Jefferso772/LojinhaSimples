@@ -1,0 +1,49 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Cadastro</title>
+        <head th:replace="~{base :: head}"></head>
+    </head>
+    <body>
+    <div th:replace="~{base :: logo}"></div>
+
+    <div  class="container">
+    <div th:replace="~{base :: titulo('Novo Pedido')}"></div>
+
+         <div class="alert alert-info mt-3" role="alert" >
+            <form th:action="@{/pedido/novo}" th:object="${requisicaoNovoPedido}" class="card-header"  method="post">
+             <div class="form-group">
+                <label for="nomeProduto" >Produto</label>
+                <input th:field="*{nomeProduto}" th:errorclass="is-invalid"  class="form-control"  id="nomeProduto" placeholder="Nome do Produto" />
+                <small>Informe o nome do Produto</small>
+                 <div class ="invlid-feedback" th:errors="*{nomeProduto}">
+
+                 </div>
+        </div>
+        <div class="form-group">
+            <label for="urlProduto" >Url do Produto</label>
+            <input th:field="*{urlProduto}" th:errorclass="is-invalid"  type="text" class="form-control" name="urlProduto" id="urlProduto" placeholder="Url do Produto" />
+            <small>Procure um site e cole a url do produto aqui</small>
+            <div class ="invlid-feedback" th:errors="*{urlProduto}">
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="urlImagem">Url da Imagem</label>
+            <input th:field="*{urlImagem}" th:errorclass="is-invalid"  name="urlImagem" class="form-control" id="urlImagem" placeholder="Url da Imagem" />
+            <small>Procure um site e cole a url da imagem aqui</small>
+            <div class ="invlid-feedback" th:errors="*{urlImagem}">
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="descricao">Descrição</label>
+            <textarea name="descricao" class="form-control"  id="descricao" placeholder="Descricao do Produto" ></textarea>
+        </div>
+        <button type="submit" class="alert alert-primary" role="alert">Salvar</button>
+       </form>
+    </div>
+
+</div>
+</body>
+</html>
